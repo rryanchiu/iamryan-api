@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.exception;
+package dev.iamryan.exception;
 
 public class IpLimitException extends RuntimeException{
 

@@ -1,12 +1,12 @@
-package me.rryan.tinyurl.service.impl;
+package dev.iamryan.service.impl;
 
-import me.rryan.tinyurl.entity.TinyUrlInfoEntity;
-import me.rryan.tinyurl.exception.RandomCodeExistsException;
-import me.rryan.tinyurl.model.req.UrlShortenReq;
-import me.rryan.tinyurl.model.resp.UrlShortenResp;
-import me.rryan.tinyurl.repository.TinyUrlRepository;
-import me.rryan.tinyurl.service.TinyUrlService;
-import me.rryan.tinyurl.util.RandomStringUtil;
+import dev.iamryan.entity.TinyUrlInfoEntity;
+import dev.iamryan.exception.RandomCodeExistsException;
+import dev.iamryan.model.req.UrlShortenReq;
+import dev.iamryan.model.resp.UrlShortenResp;
+import dev.iamryan.repository.TinyUrlRepository;
+import dev.iamryan.service.TinyUrlService;
+import dev.iamryan.util.RandomStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.retry.annotation.Backoff;

@@ -1,13 +1,15 @@
-package me.rryan.tinyurl.task;
+package dev.iamryan.task;
 
 
-import me.rryan.tinyurl.repository.DomainLikeRepository;
-import me.rryan.tinyurl.util.DomainLikeBuffer;
+import dev.iamryan.repository.DomainLikeRepository;
+import dev.iamryan.entity.DomainLikeEntity;
+import dev.iamryan.util.DomainLikeBuffer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 @Component
@@ -30,7 +32,14 @@ public class DomainLikeFlushTask {
         for (Map.Entry<String, Long> entry : snapshot.entrySet()) {
             String domain = entry.getKey();
             long likeCount = entry.getValue();
-            likeRepository.incrementLikes(domain, likeCount);
+            int updatedRows = likeRepository.incrementLikes(domain, likeCount);
+            if (updatedRows == 0) {
+                DomainLikeEntity entity = new DomainLikeEntity();
+                entity.setDomain(domain);
+                entity.setLikes(likeCount);
+                entity.setCreateTime(LocalDateTime.now());
+                likeRepository.save(entity);
+            }
         }
     }
 }

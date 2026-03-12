@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.model;
+package dev.iamryan.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

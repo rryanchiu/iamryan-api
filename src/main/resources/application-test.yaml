@@ -1,15 +1,16 @@
 spring:
   datasource:
-    url: jdbc:mysql://bj-cdb-ej9icuug.sql.tencentcdb.com:25161/tinyurl?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
-    username: testpaper
-    password: qxl110220330.
+    url: jdbc:mysql://115.190.218.118:3306/iamryan?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: abcd1234#
     driver-class-name: com.mysql.cj.jdbc.Driver
   data:
     redis:
-      host: 111.229.130.92
-      port: 6543
+      host: 42.193.126.54
+      port: 6379
+      database: 1
+      timeout: 3s
       password: abcd1234
-      database: 0
   jpa:
     hibernate:
       ddl-auto: update
@@ -25,5 +26,5 @@ spring:
 #      connection-timeout: 20000
 #      max-lifetime: 1800000
 tinyurl:
-  prefix: https://api.testpaper.fun/
+  prefix: https://s.iamryan.dev/
   expireSeconds: 604800

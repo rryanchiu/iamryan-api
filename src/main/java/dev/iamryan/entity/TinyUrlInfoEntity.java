@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.entity;
+package dev.iamryan.entity;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "tiny_url_info", indexes = {
         @Index(name = "idx_code", columnList = "code", unique = true),
-        @Index(name = "idx_long_url", columnList = "long_url", unique = false),
         @Index(name = "idx_short_url", columnList = "short_url", unique = true),
         @Index(name = "idx_create_time", columnList = "create_time", unique = false),
 })

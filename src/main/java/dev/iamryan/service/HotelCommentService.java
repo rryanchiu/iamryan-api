@@ -1,6 +1,9 @@
-package me.rryan.tinyurl.service;
+package dev.iamryan.service;
 
-import me.rryan.tinyurl.model.*;
+import dev.iamryan.model.AnalyzeCommentRequest;
+import dev.iamryan.model.AnalyzeCommentVO;
+import dev.iamryan.model.CommentAnalyzePlanVO;
+import dev.iamryan.model.ResponseResult;
 
 import java.util.Map;
 

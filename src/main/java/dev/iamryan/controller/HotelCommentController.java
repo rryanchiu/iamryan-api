@@ -1,8 +1,8 @@
-package me.rryan.tinyurl.controller;
+package dev.iamryan.controller;
 
-import me.rryan.tinyurl.annotation.IpLimit;
-import me.rryan.tinyurl.model.*;
-import me.rryan.tinyurl.service.HotelCommentService;
+import dev.iamryan.annotation.IpLimit;
+import dev.iamryan.model.*;
+import dev.iamryan.service.HotelCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

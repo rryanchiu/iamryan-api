@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.common;
+package dev.iamryan.common;
 
 public enum ResponseCode {
     EXCEPTION(1000, "Operation failed, please try again later."),

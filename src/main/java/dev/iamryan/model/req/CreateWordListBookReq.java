@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.model.req;
+package dev.iamryan.model.req;
 
 import java.io.Serializable;
 import java.util.List;

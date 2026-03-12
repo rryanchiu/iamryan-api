@@ -1,16 +1,19 @@
-package me.rryan.tinyurl.service.impl;
+package dev.iamryan.service.impl;
 
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.alibaba.fastjson2.TypeReference;
+import dev.iamryan.model.AnalyzeCommentRequest;
+import dev.iamryan.model.AnalyzeCommentVO;
+import dev.iamryan.model.CommentAnalyzePlanVO;
+import dev.iamryan.model.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
-import me.rryan.tinyurl.api.DifyWorkflowClient;
-import me.rryan.tinyurl.entity.CommentAnalyzePlanEntity;
-import me.rryan.tinyurl.exception.BusinessException;
-import me.rryan.tinyurl.model.*;
-import me.rryan.tinyurl.repository.CommentAnalyzePlanRepository;
-import me.rryan.tinyurl.service.HotelCommentService;
+import dev.iamryan.api.DifyWorkflowClient;
+import dev.iamryan.entity.CommentAnalyzePlanEntity;
+import dev.iamryan.exception.BusinessException;
+import dev.iamryan.repository.CommentAnalyzePlanRepository;
+import dev.iamryan.service.HotelCommentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.entity;
+package dev.iamryan.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

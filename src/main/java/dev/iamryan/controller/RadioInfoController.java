@@ -1,12 +1,11 @@
-package me.rryan.tinyurl.controller;
+package dev.iamryan.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import me.rryan.tinyurl.model.ResponseResult;
-import me.rryan.tinyurl.model.resp.RadioInfoStationDTO;
-import me.rryan.tinyurl.service.RadioInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import dev.iamryan.model.ResponseResult;
+import dev.iamryan.model.resp.RadioInfoStationDTO;
+import dev.iamryan.service.RadioInfoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,11 +1,11 @@
-package me.rryan.tinyurl.service.impl;
+package dev.iamryan.service.impl;
 
 import jakarta.servlet.http.HttpServletRequest;
-import me.rryan.tinyurl.entity.TinyUrlAccessLogEntity;
-import me.rryan.tinyurl.entity.TinyUrlInfoEntity;
-import me.rryan.tinyurl.repository.TinyUrlAccessLogRepository;
-import me.rryan.tinyurl.repository.TinyUrlRepository;
-import me.rryan.tinyurl.service.TinyUrlAccessLogService;
+import dev.iamryan.entity.TinyUrlAccessLogEntity;
+import dev.iamryan.entity.TinyUrlInfoEntity;
+import dev.iamryan.repository.TinyUrlAccessLogRepository;
+import dev.iamryan.repository.TinyUrlRepository;
+import dev.iamryan.service.TinyUrlAccessLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;

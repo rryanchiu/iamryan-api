@@ -1,8 +1,8 @@
-package me.rryan.tinyurl.service.impl;
+package dev.iamryan.service.impl;
 
-import me.rryan.tinyurl.repository.DomainLikeRepository;
-import me.rryan.tinyurl.service.DomainLikeService;
-import me.rryan.tinyurl.util.DomainLikeBuffer;
+import dev.iamryan.repository.DomainLikeRepository;
+import dev.iamryan.service.DomainLikeService;
+import dev.iamryan.util.DomainLikeBuffer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,9 @@ public class DomainLikeServiceImpl implements DomainLikeService {
 
     @Override
     public Long getLikeCount(String domain) {
-        return domainLikeRepository.getLikesByDomain(domain);
+        Long dbLikes = domainLikeRepository.getLikesByDomain(domain);
+        long bufferedLikes = domainLikeBuffer.getBufferedLikes(domain);
+        return (dbLikes == null ? 0L : dbLikes) + bufferedLikes;
     }
 
     @Override

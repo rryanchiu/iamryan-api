@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.model;
+package dev.iamryan.model;
 
 
 public class ResponseResult<T> {

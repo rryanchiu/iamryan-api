@@ -1,6 +1,6 @@
-package me.rryan.tinyurl.repository;
+package dev.iamryan.repository;
 
-import me.rryan.tinyurl.entity.CommentAnalyzePlanEntity;
+import dev.iamryan.entity.CommentAnalyzePlanEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,6 +1,4 @@
-package me.rryan.tinyurl.model;
-
-import org.springframework.util.CollectionUtils;
+package dev.iamryan.model;
 
 import java.util.Objects;
 

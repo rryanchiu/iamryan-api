@@ -1,12 +1,12 @@
-package me.rryan.tinyurl.task;
+package dev.iamryan.task;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.rryan.tinyurl.api.RadioBrowserInfoAPI;
-import me.rryan.tinyurl.service.RadioInfoService;
+import dev.iamryan.api.RadioBrowserInfoAPI;
+import dev.iamryan.service.RadioInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -29,7 +29,7 @@ public class RadioInfoFetchTask {
     // 创建固定线程池（建议线程数为CPU核心数 * 2）
     private final ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2);
 
-//    @Scheduled(fixedRate = 6 * 60 * 60 * 1000)
+    @Scheduled(initialDelay = 0, fixedRate = 6 * 60 * 60 * 1000)
     public void fetchRadioInfo() {
         int offset = 0;
         int totalFetched = 0;

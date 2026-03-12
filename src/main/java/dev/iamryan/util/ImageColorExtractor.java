@@ -1,20 +1,16 @@
-package me.rryan.tinyurl.util;
+package dev.iamryan.util;
 
-import me.rryan.tinyurl.model.ImageColorInfo;
-import me.rryan.tinyurl.model.RgbColor;
+import dev.iamryan.model.ImageColorInfo;
+import dev.iamryan.model.RgbColor;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.*;
-import java.util.stream.Collectors;
 
 public class ImageColorExtractor {
 

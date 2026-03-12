@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.model.resp;
+package dev.iamryan.model.resp;
 
 
 import java.io.Serializable;

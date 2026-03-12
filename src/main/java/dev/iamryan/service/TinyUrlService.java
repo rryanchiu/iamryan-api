@@ -1,7 +1,7 @@
-package me.rryan.tinyurl.service;
+package dev.iamryan.service;
 
-import me.rryan.tinyurl.model.req.UrlShortenReq;
-import me.rryan.tinyurl.model.resp.UrlShortenResp;
+import dev.iamryan.model.req.UrlShortenReq;
+import dev.iamryan.model.resp.UrlShortenResp;
 
 public interface TinyUrlService {
     UrlShortenResp createSHortUrl(UrlShortenReq req);

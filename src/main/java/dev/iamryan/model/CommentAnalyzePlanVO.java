@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.model;
+package dev.iamryan.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;

@@ -1,6 +1,6 @@
-package me.rryan.tinyurl.repository;
+package dev.iamryan.repository;
 
-import me.rryan.tinyurl.entity.TinyUrlInfoEntity;
+import dev.iamryan.entity.TinyUrlInfoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;

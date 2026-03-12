@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.service;
+package dev.iamryan.service;
 
 public interface DomainLikeService {
     Long getLikeCount(String domain);

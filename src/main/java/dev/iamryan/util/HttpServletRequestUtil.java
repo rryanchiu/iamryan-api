@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.util;
+package dev.iamryan.util;
 
 import jakarta.servlet.http.HttpServletRequest;
 

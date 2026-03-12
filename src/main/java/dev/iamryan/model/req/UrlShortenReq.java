@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.model.req;
+package dev.iamryan.model.req;
 
 import jakarta.validation.constraints.NotEmpty;
 

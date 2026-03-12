@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.config;
+package dev.iamryan.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,7 @@
-package me.rryan.tinyurl.aspect;
+package dev.iamryan.aspect;
 
-import me.rryan.tinyurl.annotation.TinyUrlAccessLog;
-import me.rryan.tinyurl.service.TinyUrlAccessLogService;
+import dev.iamryan.annotation.TinyUrlAccessLog;
+import dev.iamryan.service.TinyUrlAccessLogService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;

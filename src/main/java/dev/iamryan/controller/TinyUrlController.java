@@ -1,14 +1,14 @@
-package me.rryan.tinyurl.controller;
+package dev.iamryan.controller;
 
 import io.micrometer.common.util.StringUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import me.rryan.tinyurl.annotation.IpLimit;
-import me.rryan.tinyurl.annotation.TinyUrlAccessLog;
-import me.rryan.tinyurl.model.ResponseResult;
-import me.rryan.tinyurl.model.req.UrlShortenReq;
-import me.rryan.tinyurl.model.resp.UrlShortenResp;
-import me.rryan.tinyurl.service.TinyUrlService;
+import dev.iamryan.annotation.IpLimit;
+import dev.iamryan.annotation.TinyUrlAccessLog;
+import dev.iamryan.model.ResponseResult;
+import dev.iamryan.model.req.UrlShortenReq;
+import dev.iamryan.model.resp.UrlShortenResp;
+import dev.iamryan.service.TinyUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

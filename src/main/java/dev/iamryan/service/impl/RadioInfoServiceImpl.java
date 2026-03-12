@@ -1,12 +1,12 @@
-package me.rryan.tinyurl.service.impl;
+package dev.iamryan.service.impl;
 
 import com.alibaba.fastjson2.JSONObject;
 import lombok.RequiredArgsConstructor;
-import me.rryan.tinyurl.entity.RadioInfoEntity;
-import me.rryan.tinyurl.model.resp.RadioInfoStationDTO;
-import me.rryan.tinyurl.repository.RadioInfoRepository;
-import me.rryan.tinyurl.service.RadioInfoService;
-import me.rryan.tinyurl.util.ImageColorExtractor;
+import dev.iamryan.entity.RadioInfoEntity;
+import dev.iamryan.model.resp.RadioInfoStationDTO;
+import dev.iamryan.repository.RadioInfoRepository;
+import dev.iamryan.service.RadioInfoService;
+import dev.iamryan.util.ImageColorExtractor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -86,13 +85,13 @@ public class RadioInfoServiceImpl implements RadioInfoService {
         entity.setGeoDistance(station.getDouble("geo_distance"));
         entity.setHasExtendedInfo(station.getBoolean("has_extended_info"));
         entity.setLastChangeTime(incomingChangeTime);
-        if (!StringUtils.isEmpty(entity.getFavicon()) && StringUtils.isEmpty(entity.getColors())) {
-            try {
-                entity.setColors(ImageColorExtractor.extractDominantColors(entity.getFavicon()).getColorsString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+//        if (!StringUtils.isEmpty(entity.getFavicon()) && StringUtils.isEmpty(entity.getColors())) {
+//            try {
+//                entity.setColors(ImageColorExtractor.extractDominantColors(entity.getFavicon()).getColorsString());
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
 
         radioInfoRepository.save(entity);
     }

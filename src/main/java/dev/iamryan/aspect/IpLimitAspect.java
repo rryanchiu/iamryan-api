@@ -1,10 +1,10 @@
-package me.rryan.tinyurl.aspect;
+package dev.iamryan.aspect;
 
 
 import jakarta.servlet.http.HttpServletRequest;
-import me.rryan.tinyurl.annotation.IpLimit;
-import me.rryan.tinyurl.exception.IpLimitException;
-import me.rryan.tinyurl.util.HttpServletRequestUtil;
+import dev.iamryan.annotation.IpLimit;
+import dev.iamryan.exception.IpLimitException;
+import dev.iamryan.util.HttpServletRequestUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

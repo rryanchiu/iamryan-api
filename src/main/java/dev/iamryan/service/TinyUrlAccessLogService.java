@@ -1,4 +1,4 @@
-package me.rryan.tinyurl.service;
+package dev.iamryan.service;
 
 import org.springframework.http.HttpStatusCode;
 

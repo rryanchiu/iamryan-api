@@ -1,11 +1,20 @@
-package me.rryan.tinyurl.controller;
+package dev.iamryan.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import me.rryan.tinyurl.model.ResponseResult;
-import me.rryan.tinyurl.service.DomainLikeService;
+import dev.iamryan.model.ResponseResult;
+import dev.iamryan.service.DomainLikeService;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.ClassicHttpResponse;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 @Tag(name = "DomainLikeController")
 @RestController
@@ -32,6 +41,5 @@ public class DomainLikeController {
         domainLikeService.like(domain);
         return ResponseResult.success();
     }
-
 
 }
