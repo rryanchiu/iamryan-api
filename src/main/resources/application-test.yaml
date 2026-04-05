@@ -1,16 +1,16 @@
 spring:
   datasource:
-    url: jdbc:mysql://115.190.218.118:3306/iamryan?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://cd-cynosdbmysql-grp-bvo8mhx8.sql.tencentcdb.com:21410/iamryan?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: abcd1234#
     driver-class-name: com.mysql.cj.jdbc.Driver
-  data:
-    redis:
-      host: 42.193.126.54
-      port: 6379
-      database: 1
-      timeout: 3s
-      password: abcd1234
+#  data:
+#    redis:
+#      host: 42.193.126.54
+#      port: 6379
+#      database: 1
+#      timeout: 3s
+#      password: abcd1234
   jpa:
     hibernate:
       ddl-auto: update
