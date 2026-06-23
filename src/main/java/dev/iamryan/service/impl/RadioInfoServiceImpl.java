@@ -23,6 +23,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class RadioInfoServiceImpl implements RadioInfoService {
 
+    private static final int LEGACY_TEXT_COLUMN_LIMIT = 2048;
+
     private final RadioInfoRepository radioInfoRepository;
 
     @Override
@@ -60,12 +62,12 @@ public class RadioInfoServiceImpl implements RadioInfoService {
         // 更新字段
         entity.setChangeUuid(station.getString("changeuuid"));
         entity.setServerUuid(station.getString("serveruuid"));
-        entity.setName(station.getString("name"));
+        entity.setName(truncate(station.getString("name")));
         entity.setUrl(station.getString("url"));
         entity.setUrlResolved("");
-        entity.setHomepage(station.getString("homepage"));
-        entity.setFavicon(station.getString("favicon"));
-        entity.setTags(station.getString("tags"));
+        entity.setHomepage(truncate(station.getString("homepage")));
+        entity.setFavicon(truncate(station.getString("favicon")));
+        entity.setTags(truncate(station.getString("tags")));
         entity.setCountry(station.getString("country"));
         entity.setCountryCode(station.getString("countrycode"));
         entity.setState(station.getString("state"));
@@ -153,6 +155,13 @@ public class RadioInfoServiceImpl implements RadioInfoService {
             // 可以打印日志
             return null;
         }
+    }
+
+    private String truncate(String value) {
+        if (value == null || value.length() <= LEGACY_TEXT_COLUMN_LIMIT) {
+            return value;
+        }
+        return value.substring(0, LEGACY_TEXT_COLUMN_LIMIT);
     }
 
 }

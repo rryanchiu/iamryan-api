@@ -1,21 +1,7 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-ARG MYSQL_HOST
-ARG MYSQL_USERNAME
-ARG MYSQL_PASSWORD
-ARG REDIS_HOST
-ARG REDIS_PORT
-ARG REDIS_PASSWORD
-
-ENV MYSQL_HOST=${MYSQL_HOST}
-ENV MYSQL_USERNAME=${MYSQL_USERNAME}
-ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
-ENV REDIS_HOST=${REDIS_HOST}
-ENV REDIS_PORT=${REDIS_PORT}
-ENV REDIS_PASSWORD=${REDIS_PASSWORD}
-
-COPY target/tinyurl-0.0.1-SNAPSHOT.jar /app/tinyurl.jar
+COPY target/iamryan-api-0.0.1-SNAPSHOT.jar /app/iamryan-api.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/tinyurl.jar", "--server.port=8080"]
+ENTRYPOINT ["java", "-jar", "/app/iamryan-api.jar", "--server.port=8080"]

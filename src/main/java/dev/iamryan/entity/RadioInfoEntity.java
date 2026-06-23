@@ -26,19 +26,19 @@ public class RadioInfoEntity {
     @Column(length = 2048)
     private String name;
 
-    @Column(columnDefinition = "blob")
+    @Column(columnDefinition = "TEXT")
     private String url;
 
-    @Column(length = 2048)
+    @Column(columnDefinition = "TEXT")
     private String urlResolved;
 
-    @Column(length = 2048)
+    @Column(columnDefinition = "TEXT")
     private String homepage;
 
-    @Column(length = 2048)
+    @Column(columnDefinition = "TEXT")
     private String favicon;
 
-    @Column(length = 2048)
+    @Column(columnDefinition = "TEXT")
     private String tags;
 
     private String country;
@@ -70,7 +70,7 @@ public class RadioInfoEntity {
     private Double geoLong;
     private Double geoDistance;
 
-    @Column(length = 2048)
+    @Column(columnDefinition = "TEXT")
     private String colors;
 
     private Boolean hasExtendedInfo;

@@ -12,10 +12,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableScheduling
 @EnableFeignClients
 @EnableTransactionManagement
-public class TinyUrlApplication {
+public class IamRyanApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TinyUrlApplication.class, args);
+        SpringApplication.run(IamRyanApplication.class, args);
     }
 
 }

@@ -13,9 +13,6 @@ This is a simple URL shortening service that allows you to convert long URLs int
 - Java
 - Spring boot 
 - Spring Data JPA
-- MySQL
-- Redis
+- SQLite
 - Spring REST Docs
-
-
 

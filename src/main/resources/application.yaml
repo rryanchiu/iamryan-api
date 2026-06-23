@@ -1,21 +1,31 @@
 spring:
   application:
     name: tinyurl
-  profiles:
-    active: test
   messages:
     basename: i18n/messages
     encoding: UTF-8
     cache-duration: 3600
   datasource:
+    url: jdbc:sqlite:./data/iamryan.db
+    username:
+    password:
+    driver-class-name: org.sqlite.JDBC
     hikari:
-      maximum-pool-size: 30
-      minimum-idle: 10
+      maximum-pool-size: 1
+      minimum-idle: 1
       idle-timeout: 30000
       login-timeout: 5
       connection-timeout: 60000
       max-lifetime: 70000
       read-only: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.community.dialect.SQLiteDialect
+        format_sql: true
 
 springdoc:
   swagger-ui:
@@ -23,3 +33,7 @@ springdoc:
 
 server:
   port: 8765
+
+tinyurl:
+  prefix: https://s.imryan.dev/
+  expireSeconds: 604800
