@@ -6,7 +6,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "domain_like")
+@Table(name = "domain_like", indexes = {
+        @Index(name = "idx_domain_like_domain", columnList = "domain")
+})
 public class DomainLikeEntity {
 
     @Id
@@ -14,6 +16,7 @@ public class DomainLikeEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String domain;
 
     private Long likes;

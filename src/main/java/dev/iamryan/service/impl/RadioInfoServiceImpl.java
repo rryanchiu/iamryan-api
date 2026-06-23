@@ -5,13 +5,11 @@ import lombok.RequiredArgsConstructor;
 import dev.iamryan.entity.RadioInfoEntity;
 import dev.iamryan.model.resp.RadioInfoStationDTO;
 import dev.iamryan.repository.RadioInfoRepository;
+import dev.iamryan.repository.RadioInfoStationProjection;
 import dev.iamryan.service.RadioInfoService;
 import dev.iamryan.util.ImageColorExtractor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Slice;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -104,12 +102,8 @@ public class RadioInfoServiceImpl implements RadioInfoService {
     public List<RadioInfoStationDTO> stations(Integer offset, Integer pageSize) {
         int safePageSize = pageSize == null || pageSize <= 0 ? DEFAULT_PAGE_SIZE : Math.min(pageSize, MAX_PAGE_SIZE);
         int safeOffset = offset == null || offset < 0 ? 0 : offset;
-        PageRequest pageable = PageRequest.of(safeOffset / safePageSize, safePageSize, Sort.by(Sort.Direction.DESC, "clickCount")); // 排序字段可改
 
-        // geoLong !=null && geoLat != null
-        Slice<RadioInfoEntity> page = radioInfoRepository.findByGeoLatIsNotNullAndGeoLongIsNotNull(pageable);
-
-        return page.getContent().stream()
+        return radioInfoRepository.findStationList(safeOffset, safePageSize).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
@@ -134,6 +128,30 @@ public class RadioInfoServiceImpl implements RadioInfoService {
     private RadioInfoStationDTO convertToDTO(RadioInfoEntity entity) {
         RadioInfoStationDTO dto = new RadioInfoStationDTO();
         BeanUtils.copyProperties(entity, dto);
+        return dto;
+    }
+
+    private RadioInfoStationDTO convertToDTO(RadioInfoStationProjection projection) {
+        RadioInfoStationDTO dto = new RadioInfoStationDTO();
+        dto.setChangeUuid(projection.getChangeUuid());
+        dto.setStationUuid(projection.getStationUuid());
+        dto.setServerUuid(projection.getServerUuid());
+        dto.setName(projection.getName());
+        dto.setUrl(projection.getUrl());
+        dto.setHomepage(projection.getHomepage());
+        dto.setFavicon(projection.getFavicon());
+        dto.setTags(projection.getTags());
+        dto.setCountry(projection.getCountry());
+        dto.setCountryCode(projection.getCountryCode());
+        dto.setState(projection.getState());
+        dto.setLanguage(projection.getLanguage());
+        dto.setLanguageCodes(projection.getLanguageCodes());
+        dto.setClickCount(projection.getClickCount());
+        dto.setClickTrend(projection.getClickTrend());
+        dto.setGeoLat(projection.getGeoLat());
+        dto.setGeoLong(projection.getGeoLong());
+        dto.setGeoDistance(projection.getGeoDistance());
+        dto.setColors(projection.getColors());
         return dto;
     }
 

@@ -21,9 +21,15 @@ public class DomainLikeServiceImpl implements DomainLikeService {
 
     @Override
     public Long getLikeCount(String domain) {
+        Long cachedLikes = domainLikeBuffer.getCachedTotalLikes(domain);
+        if (cachedLikes != null) {
+            return cachedLikes;
+        }
         Long dbLikes = domainLikeRepository.getLikesByDomain(domain);
         long bufferedLikes = domainLikeBuffer.getBufferedLikes(domain);
-        return (dbLikes == null ? 0L : dbLikes) + bufferedLikes;
+        long totalLikes = (dbLikes == null ? 0L : dbLikes) + bufferedLikes;
+        domainLikeBuffer.cacheTotalLikes(domain, totalLikes);
+        return totalLikes;
     }
 
     @Override
