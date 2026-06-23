@@ -6,12 +6,12 @@ spring:
     encoding: UTF-8
     cache-duration: 3600
   datasource:
-    url: jdbc:sqlite:./data/iamryan.db
+    url: jdbc:sqlite:./data/iamryan.db?journal_mode=WAL&synchronous=NORMAL&busy_timeout=5000
     username:
     password:
     driver-class-name: org.sqlite.JDBC
     hikari:
-      maximum-pool-size: 1
+      maximum-pool-size: 5
       minimum-idle: 1
       idle-timeout: 30000
       login-timeout: 5
@@ -26,6 +26,7 @@ spring:
       hibernate:
         dialect: org.hibernate.community.dialect.SQLiteDialect
         format_sql: true
+    open-in-view: false
 
 springdoc:
   swagger-ui:
@@ -37,3 +38,8 @@ server:
 tinyurl:
   prefix: https://s.imryan.dev/
   expireSeconds: 604800
+
+radio-info:
+  fetch:
+    initial-delay-ms: 60000
+    fixed-rate-ms: 21600000

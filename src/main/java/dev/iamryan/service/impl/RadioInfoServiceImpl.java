@@ -9,8 +9,8 @@ import dev.iamryan.service.RadioInfoService;
 import dev.iamryan.util.ImageColorExtractor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +24,8 @@ import java.util.stream.Collectors;
 public class RadioInfoServiceImpl implements RadioInfoService {
 
     private static final int LEGACY_TEXT_COLUMN_LIMIT = 2048;
+    private static final int DEFAULT_PAGE_SIZE = 100;
+    private static final int MAX_PAGE_SIZE = 500;
 
     private final RadioInfoRepository radioInfoRepository;
 
@@ -100,10 +102,12 @@ public class RadioInfoServiceImpl implements RadioInfoService {
 
     @Override
     public List<RadioInfoStationDTO> stations(Integer offset, Integer pageSize) {
-        PageRequest pageable = PageRequest.of(offset / pageSize, pageSize, Sort.by(Sort.Direction.DESC, "clickCount")); // 排序字段可改
+        int safePageSize = pageSize == null || pageSize <= 0 ? DEFAULT_PAGE_SIZE : Math.min(pageSize, MAX_PAGE_SIZE);
+        int safeOffset = offset == null || offset < 0 ? 0 : offset;
+        PageRequest pageable = PageRequest.of(safeOffset / safePageSize, safePageSize, Sort.by(Sort.Direction.DESC, "clickCount")); // 排序字段可改
 
         // geoLong !=null && geoLat != null
-        Page<RadioInfoEntity> page = radioInfoRepository.findByGeoLatIsNotNullAndGeoLongIsNotNull(pageable);
+        Slice<RadioInfoEntity> page = radioInfoRepository.findByGeoLatIsNotNullAndGeoLongIsNotNull(pageable);
 
         return page.getContent().stream()
                 .map(this::convertToDTO)

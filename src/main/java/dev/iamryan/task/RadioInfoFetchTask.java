@@ -25,11 +25,14 @@ public class RadioInfoFetchTask {
 
     private static final int PAGE_SIZE = 500;
     private static final int MAX_FETCH_LIMIT = 500_000;
+    private static final int DEFAULT_SYNC_THREADS = 2;
 
-    // 创建固定线程池（建议线程数为CPU核心数 * 2）
-    private final ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2);
+    private final ExecutorService executor = Executors.newFixedThreadPool(DEFAULT_SYNC_THREADS);
 
-    @Scheduled(initialDelay = 0, fixedRate = 6 * 60 * 60 * 1000)
+    @Scheduled(
+            initialDelayString = "${radio-info.fetch.initial-delay-ms:60000}",
+            fixedRateString = "${radio-info.fetch.fixed-rate-ms:21600000}"
+    )
     public void fetchRadioInfo() {
         int offset = 0;
         int totalFetched = 0;

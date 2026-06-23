@@ -9,7 +9,10 @@ import org.springframework.data.annotation.CreatedDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "radio_info")
+@Table(name = "radio_info", indexes = {
+        @Index(name = "idx_radio_info_station_uuid", columnList = "station_uuid"),
+        @Index(name = "idx_radio_info_click_count", columnList = "click_count")
+})
 @Getter
 @Setter
 public class RadioInfoEntity {
